@@ -2,3 +2,4 @@
 __pycache_
 .DS_Store
 storage/*
+.vscode
