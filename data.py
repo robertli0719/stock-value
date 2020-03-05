@@ -33,7 +33,7 @@ def __pick_html_file(ticker_arr):
     html_dic = {}
     for ticker in ticker_arr:
         key = __file_key(ticker)
-        if storage.has(key) == False:
+        if not storage.has(key):
             html = __pick_html(ticker)
             storage.put(key, html)
         html = storage.get(key)
@@ -46,13 +46,13 @@ def __pick_val_out(soup, title):
     return tr.td.next_sibling.string
 
 
-def __pick_vals(html, title_arr):
-    vals = {}
-    soup = BeautifulSoup(html)
+def __pick_values(html, title_arr):
+    values = {}
+    soup = BeautifulSoup(html, features="html.parser")
     for title in title_arr:
         val = __pick_val_out(soup, title)
-        vals[title] = val
-    return vals
+        values[title] = val
+    return values
 
 
 def pick_data(ticker_arr, title_arr):
@@ -60,6 +60,6 @@ def pick_data(ticker_arr, title_arr):
     html_files = __pick_html_file(ticker_arr)
     for ticker in ticker_arr:
         html = html_files[ticker]
-        vals = __pick_vals(html, title_arr)
-        data[ticker] = vals
+        values = __pick_values(html, title_arr)
+        data[ticker] = values
     return data

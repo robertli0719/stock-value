@@ -9,22 +9,22 @@ import os
 import pickle
 
 
-def __getStoragePath():
+def __get_storage_path():
     return "./storage"
 
 
-def __initDir():
-    map_path = __getStoragePath()
-    if os.path.isdir(map_path) == False:
+def __init_dir():
+    map_path = __get_storage_path()
+    if not os.path.isdir(map_path):
         os.mkdir(map_path)
 
 
 def __path(name):
-    return os.path.join(__getStoragePath(), name)
+    return os.path.join(__get_storage_path(), name)
 
 
 def put(name, content):
-    __initDir()
+    __init_dir()
     f = open(__path(name), 'wb')
     pickle.dump(content, f)
 
