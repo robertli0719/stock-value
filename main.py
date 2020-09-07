@@ -13,7 +13,7 @@ def p2f(x):
 
 
 ticker_arr = ["AAPL", "FB", "DIS", "GOOG", "NVDA", "AMZN",
-              "MSFT", "IBM", "BABA", "TCEHY", "BIDU", "V", "NKE", "LULU"]
+              "MSFT", "IBM", "BABA", "TCEHY", "V", "NKE", "LULU","GOLD"]
 title_arr = ["Trailing P/E", "Forward P/E",
              "Price/Book", "Return on Assets", "Return on Equity"]
 

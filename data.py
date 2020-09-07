@@ -20,7 +20,7 @@ def __file_key(ticker):
 
 
 def __pick_url(ticker):
-    return "https://finance.yahoo.com/quote/" + ticker + "/key-statistics"
+    return "https://finance.yahoo.com/quote/" + ticker + "/key-statistics?p="+ticker
 
 
 def __pick_html(ticker):
